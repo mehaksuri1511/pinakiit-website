@@ -16,7 +16,13 @@ import { verifyMailConnection } from "./services/mailService.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://pinakiithub.com",
+    "https://www.pinakiithub.com"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
